@@ -11,8 +11,8 @@ ${BROWSER}        Chrome
 *** Test Cases ***
 Valid Login
     Open Browser To Login Page
-    Input Username    viemed.automation.tester@gmail.com
-    Input Password    50BF57F3-523c-4082-9870-04eb33deab9e
+    Input Username    
+    Input Password    
     Submit Credentials
     Provider Home Page    PROVIDER HOME
     [Teardown]
