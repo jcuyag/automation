@@ -3,6 +3,7 @@ Documentation     Viemed automation assessment
 Suite Teardown
 Library           SeleniumLibrary
 Library           String
+Library           OperatingSystem
 
 *** Variables ***
 ${LOGIN URL}      https://telemed.viemed.io
@@ -10,9 +11,10 @@ ${BROWSER}        Chrome
 
 *** Test Cases ***
 Valid Login
+    [Tags]    valid_login
     Open Browser To Login Page
-    Input Username    
-    Input Password    
+    Input Username
+    Input Password
     Submit Credentials
     Provider Home Page    PROVIDER HOME
     [Teardown]
@@ -30,24 +32,18 @@ Busy to Free
     Sleep    1 sec
     Check Status    Free
 
-new testcase
-    Check Status    Busy
-    Change status    Free
-    Sleep    1 sec
-    Check Status    Busy
-
 *** Keywords ***
 Open Browser To Login Page
     Open Browser    ${LOGIN URL}    ${BROWSER}
     Title Should Be    Telemed
 
 Input Username
-    [Arguments]    ${username}
-    Input Text    email    ${username}
+    ${user}    Get Environment Variable    USERNAME
+    Input Text    email    ${user}
 
 Input Password
-    [Arguments]    ${password}
-    Input Text    password    ${password}
+    ${pass}    Get Environment Variable    PASSWORD
+    Input Text    password    ${pass}
 
 Submit Credentials
     Click Button    Login
