@@ -21,6 +21,7 @@ After installing the library, you still need to install browser and
 operating system specific browser drivers for all those browsers you
 want to use in tests. These are the exact same drivers you need to use with Selenium also when not using SeleniumLibrary. More information about
 drivers can be found from `Selenium documentation`. ::
+    
     pip install webdrivermanager
     webdrivermanager chrome
 
@@ -28,5 +29,6 @@ drivers can be found from `Selenium documentation`. ::
 Running the test
 ----------------
 To run the whole test suite::
+
     robot selenium/test/login.robot 
 
