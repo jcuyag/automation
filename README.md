@@ -11,9 +11,10 @@ Clone this project and install the requirements.txt via pip command.
 
 Set the environment variable for the `USERNAME` and `PASSWORD`
 
-    For Linux.
-        export USERNAME=<your_username>
-        export PASSWORD=<your_password> 
+For Linux.
+    
+    export USERNAME=<your_username>
+    export PASSWORD=<your_password> 
 
 Browser drivers
 ---------------
