@@ -4,10 +4,9 @@ Suite Teardown
 Library           SeleniumLibrary
 Library           String
 Library           OperatingSystem
+Variables         ../Config/constant.py
 
 *** Variables ***
-${LOGIN URL}      https://telemed.viemed.io
-${BROWSER}        Chrome
 
 *** Test Cases ***
 Valid Login
@@ -34,7 +33,7 @@ Busy to Free
 
 *** Keywords ***
 Open Browser To Login Page
-    Open Browser    ${LOGIN URL}    ${BROWSER}
+    Open Browser    ${LOGIN_URL}    ${BROWSER}
     Title Should Be    Telemed
 
 Input Username

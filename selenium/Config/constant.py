@@ -1,2 +1,2 @@
-USERNAME = 'user name'
-PASSWORD = 'password'
+LOGIN_URL = 'https://telemed.viemed.io'
+BROWSER = 'Chrome'
