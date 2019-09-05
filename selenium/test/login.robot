@@ -6,6 +6,8 @@ Library           String
 Library           OperatingSystem
 Variables         ../Config/constant.py
 
+Suite Teardown    Close All Browsers
+
 *** Variables ***
 
 *** Test Cases ***
