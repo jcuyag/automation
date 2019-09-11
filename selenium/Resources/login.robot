@@ -2,6 +2,7 @@
 Library           SeleniumLibrary
 Library           OperatingSystem
 Library           String
+Resource          page.robot
 
 *** Keywords ***
 Provider Home Page
@@ -9,7 +10,7 @@ Provider Home Page
 
 Open Browser To Login Page
     Open Browser    ${LOGIN_URL}    ${BROWSER}
-    Title Should Be    Telemed
+    Login Form
 
 Input Username
     ${user}    Get Environment Variable    USERNAME
