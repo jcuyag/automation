@@ -1,2 +1,3 @@
 LOGIN_URL = 'https://telemed.viemed.io'
-BROWSER = 'headlesschrome'
+PROVIDER_URL = '{0}/en/provider'.format(LOGIN_URL)
+BROWSER = 'chrome'

@@ -12,7 +12,7 @@ Login Form
     Page Should Contain Button    ${elem}
 
 Provider
-    Wait Until Location Is    ${PROVIDER_URL}
+    Wait Until Location Is    ${PROVIDER_URL}    10 sec
     Wait Until Page Contains    PROVIDER HOME
     Wait Until Page Contains    Your status is
     Page Should Contain Button    Free

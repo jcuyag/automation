@@ -1,26 +1,44 @@
 *** Settings ***
 Documentation     Viemed automation assessment
-Test Teardown     Close Browser
+Test Teardown
 Variables         ../Config/constant.py
 Resource          ../Resources/login.robot
+Resource          ../Resources/page.robot
+Library           SeleniumLibrary
+Resource          ../Resources/provider.robot
 
 *** Test Cases ***
+Valid Login
+    [Tags]    valid_login
+    [Setup]
+    Submit Credentials
+    Alert Should Not Be Present
+
+Invalid Login
+    [Tags]    invalid_login
+    Submit Credentials    'sdfdsfsfdsff'    'sdfdsfdfsdfsdf'
+    Alert Should Be Present    Incorrect username or password.
+
 Free to Busy
     [Tags]    free_to_busy
-    [Setup]    Valid Login
-    Check Status    Free
-    Change status    Busy
-    Sleep    1 sec
-    Check Status    Busy
+    [Setup]    Submit Credentials
+    Provider
+    ${is_free}=    Status Should be    Free
+    Run Keyword If    ${is_free} == ${False}    Set status to free
+    Status Should be    Free
+    Set status to busy
+    Status Should be    Busy
     [Teardown]
 
 Busy to Free
     [Tags]    busy_to_free
-    [Setup]    Valid Login
-    Check Status    Busy
-    Change status    Free
-    Sleep    1 sec
-    Check Status    Free
+    [Setup]    Submit Credentials
+    Provider
+    ${is_busy}=    Status Should be    Busy
+    Run Keyword If    ${is_busy} == ${False}    Set status to busy
+    Status Should be    Busy
+    Set status to free
+    Status Should be    Free
 
 *** Keywords ***
 Check Status
