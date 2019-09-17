@@ -1,6 +1,5 @@
 *** Settings ***
 Documentation     Viemed automation assessment
-Test Teardown
 Variables         ../Config/constant.py
 Resource          ../Resources/login.robot
 Resource          ../Resources/page.robot
