@@ -1,5 +1,9 @@
 from dotenv import load_dotenv
+import os
+
 load_dotenv(verbose=True)
 
-LOGIN_URL = 'https://telemed.viemed.io'
-BROWSER = 'headlesschrome'
+DOMAIN = os.getenv('DOMAIN')
+LOGIN_URL = 'https://{0}'.format(DOMAIN)
+PROVIDER_URL = '{0}/en/provider'.format(LOGIN_URL)
+BROWSER = 'chrome'
